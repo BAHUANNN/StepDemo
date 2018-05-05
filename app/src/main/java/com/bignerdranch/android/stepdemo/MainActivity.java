@@ -24,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.text_view);
-        mTextView.setText(SharedPreferencesUtils.readInteger(CURRENT_DATE));
+        mTextView.setText(SharedPreferencesUtils.readInteger(CURRENT_DATE)+"");
+
         initService();
     }
 

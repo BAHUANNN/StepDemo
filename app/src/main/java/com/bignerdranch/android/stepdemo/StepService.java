@@ -62,8 +62,8 @@ public class StepService extends Service implements SensorEventListener{
     @Override
     public void onCreate() {
         super.onCreate();
-        initTodayData();
         initNotification();
+        initTodayData();
         initBroadcastReceiver();
         new Thread(new Runnable() {
             public void run() {
@@ -241,11 +241,9 @@ public class StepService extends Service implements SensorEventListener{
         mNotificationManager.notify(notifyId_Step, notification);
 
         if (mCallback != null) {
-            //mCallback.updateUi(stepNum);
+            mCallback.updateUi(stepNum);
             SharedPreferencesUtils.storeInteger(CURRENT_DATE,stepNum);
         }
-
-        Toast.makeText(getApplicationContext(),stepNum+"",Toast.LENGTH_SHORT).show();
     }
 
     //Date判断~~~~~~~~~~~~~~~~~~~~~~~~~~~~

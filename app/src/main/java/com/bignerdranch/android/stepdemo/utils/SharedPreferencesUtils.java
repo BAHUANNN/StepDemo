@@ -11,7 +11,7 @@ import com.bignerdranch.android.stepdemo.App;
 
 public class SharedPreferencesUtils {
 
-    public synchronized static void storeString(String key, String string){
+    public static void storeString(String key, String string){
         SharedPreferences sharedPreferences = App.getContext().getSharedPreferences(key,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -20,14 +20,14 @@ public class SharedPreferencesUtils {
     }
 
     //if the string exits if true read from memory; exit read string
-    public synchronized static String readString(String key){
+    public static String readString(String key){
         SharedPreferences sharedPreferences = App.getContext().getSharedPreferences(key,
                 Context.MODE_PRIVATE);
         String string = sharedPreferences.getString(key,"NOTHING");
         return string;
     }
 
-    public synchronized static void storeInteger(String key,int value){
+    public static void storeInteger(String key,int value){
         SharedPreferences sharedPreferences = App.getContext().getSharedPreferences(key,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -35,7 +35,7 @@ public class SharedPreferencesUtils {
         editor.apply();
     }
 
-    public synchronized static Integer readInteger(String key){
+    public static Integer readInteger(String key){
         SharedPreferences sharedPreferences = App.getContext().getSharedPreferences(key,
                 Context.MODE_PRIVATE);
         int number = sharedPreferences.getInt(key,0);
